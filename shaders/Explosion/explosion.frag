@@ -12,11 +12,12 @@ void main()
 {
 	float s = 1.0/8.0; 
 	float t = 1.0/6.0;
-	int frame = int(30*time) % 48;
-	float x = frame%8;
-	float y = frame/8;
-	vec2 Coord = vtexCoord * vec2(s,t) - vec2(0, t);
-	vec2 offset = vec2(s*x, -t*y);
-    fragColor = frontColor * texture(explosion, Coord + offset);
+	int frame = int(time*30)%48;
+	int x = frame%8;
+	int y = frame/8;
+
+	vec2 offset = vec2(x*s, -t*y);
+	vec2 sCoord = vec2(vtexCoord.s*s, vtexCoord.t*t) - vec2(0,t);
+    fragColor = frontColor * texture(explosion, sCoord + offset);
     fragColor = fragColor.a * fragColor;
 }  
