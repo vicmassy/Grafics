@@ -11,12 +11,11 @@ out vec3 N;
 out vec3 V;
 
 uniform mat4 modelViewProjectionMatrix;
-uniform mat4 modelViewMatrix;
 
 void main()
 {
     N = normal;
-	V = (modelViewMatrix*vec4(vertex,1.0)).xyz;
+	V = vertex;
     frontColor = vec4(color,1.0) * N.z;
     vtexCoord = texCoord;
     gl_Position = modelViewProjectionMatrix * vec4(vertex, 1.0);
