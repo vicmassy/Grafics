@@ -11,7 +11,7 @@ out vec4 gfrontColor;
 uniform float time;
 uniform mat4 modelViewProjectionMatrix;
 
-const float speed = 1000.5;
+const float speed = 0.5;
 
 void main( void )
 {
